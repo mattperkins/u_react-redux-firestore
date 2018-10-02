@@ -1,7 +1,7 @@
 import * as React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
-import App from './layout/App.jsx'
+import App from './layout/App'
 import registerServiceWorker from './registerServiceWorker'
 
 const rootEl = document.getElementById('root')
@@ -11,7 +11,7 @@ let render = () => {
 }
 
 if(module.hot) {
-  module.hot.accept('./layout/App.jsx', () => {
+  module.hot.accept('./layout/App', () => {
     setTimeout(render)
   })
 }
