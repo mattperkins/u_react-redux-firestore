@@ -1,33 +1,21 @@
 import * as React from 'react'
 import ReactDOM from 'react-dom'
+import './index.css'
+import App from './App.jsx'
 import registerServiceWorker from './registerServiceWorker'
-// Modest Grid linked via public/index.html
-import './css/reset.css'
-import './css/style.css'
 
-// main ("ROOT") component 
-class Root extends React.Component {
+const rootEl = document.getElementById('root')
 
-render() {
+let render = () => {
+  ReactDOM.render(<App />, rootEl)
+}
 
-return (
+if(module.hot) {
+  module.hot.accept('./App', () => {
+    setTimeout(render)
+  })
+}
 
+render()
 
-<div className="wrapper">
-<div className="row">
-
-<div className="col-12">
-  <h1>Hello, World!</h1>
-</div>
-
-</div>
-</div>
-
-
-)// end return
-}// end render
-}// end component
-
-ReactDOM.render(<Root />, 
-  document.getElementById('root'))
-  registerServiceWorker()
+registerServiceWorker()
